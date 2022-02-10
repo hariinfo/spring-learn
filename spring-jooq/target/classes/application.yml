@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:6551/dummy
+    username: dummy
+    password: dummy
+    driver-class-name: org.postgresql.Driver
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      properties:
+        hibernate:
+          jdbc:
+            lob:
+              non_contextual_creation: true
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+    jooq:
+      datasources:
+        default:
+          sql-dialect: POSTGRES
+server:
+  port: 8090
+
+---
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+
+profiles:
+    active: dev
+
+flyway:
+  enabled: true
+  locations: classpath:database/migration
+  schemas: dummy
+  default-schema: dummy
+  user: postgres
+  password: postgres
+
+---
+
+
+service.basepath.v1: /v1
