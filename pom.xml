@@ -59,7 +59,7 @@
 	</dependencies>
 
   <modules>
-    <module>flux-learn</module>
+    <module>flux-flux</module>
     <module>spring-jdbc-firefly</module>
   </modules>
 
