@@ -60,7 +60,7 @@
 
   <modules>
     <module>flux-learn</module>
-    <module>spring-jooq</module>
+    <module>spring-jdbc-firefly</module>
   </modules>
 
 <!-- (you do not need this if you are using a .RELEASE version) -->

@@ -1,0 +1,18 @@
+POST http://localhost:8090/books
+Content-Type: application/json
+
+{
+    "id":1,
+    "genre":"test",
+    "author":"test",
+    "title":"test",
+    "price": 1.55
+}
+
+
+###
+GET http://localhost:8090/books
+
+
+###
+GET http://localhost:8090/books/2
