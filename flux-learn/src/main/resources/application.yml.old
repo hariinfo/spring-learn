@@ -1,0 +1,25 @@
+logging:
+  level:
+    root: INFO
+spring:
+  datasource:
+    hikari:
+        maximum-pool-size: 4
+        connection-timeout: 20000
+---
+spring:
+  r2bc:
+    url: jdbc:postgresql://localhost:6551/dummy
+    username: dummy
+    password: dummy
+    driver-class-name: org.postgresql.Driver
+  datasource:
+    url: jdbc:postgresql://localhost:6551/dummy
+    username: dummy
+    password: dummy
+logging:
+  level:
+    root: INFO
+    '[org.springframework.jdbc.core]': TRACE
+    '[org.springframework.transaction]': TRACE
+    '[org.springframework.data.r2dbc]': TRACE
