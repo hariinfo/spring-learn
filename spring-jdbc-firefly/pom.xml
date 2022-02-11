@@ -8,10 +8,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>spring-jooq</artifactId>
+	<artifactId>spring-jdbc-firefly</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-jooqs</name>
-	<description>Demo project for Spring Boot and Jooq</description>
+	<name>spring-jdbc-firefly</name>
+	<description>Demo project for Spring Boot and JDBC</description>
 	<properties>
 		<java.version>11</java.version>
 		<postgresql.version>42.3.1</postgresql.version>
@@ -43,27 +43,6 @@
 			<artifactId>flyway-core</artifactId>
 			<version>${flyway.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jooq</artifactId>
-		</dependency>
-
-        <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq</artifactId>
-            <version>${jooq.version}</version>
-            </dependency>
-            <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq-meta</artifactId>
-            <version>${jooq.version}</version>
-            </dependency>
-            <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq-codegen</artifactId>
-            <version>${jooq.version}</version>
-        </dependency>
 
 	</dependencies>
 
@@ -108,49 +87,6 @@
 					<locations>
 						<location>filesystem:src/main/resources/db/migration</location>
 					</locations>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<!-- Use org.jooq                for the Open Source Edition
-                         org.jooq.pro            for commercial editions with Java 17 support,
-                         org.jooq.pro-java-11    for commercial editions with Java 11 support,
-                         org.jooq.pro-java-8     for commercial editions with Java 8 support,
-                         org.jooq.trial          for the free trial edition with Java 17 support,
-                         org.jooq.trial-java-11  for the free trial edition with Java 11 support,
-                         org.jooq.trial-java-8   for the free trial edition with Java 8 support
-
-                     Note: Only the Open Source Edition is hosted on Maven Central.
-                           Import the others manually from your distribution -->
-				<groupId>org.jooq</groupId>
-				<artifactId>jooq-codegen-maven</artifactId>
-
-				<!-- The jOOQ code generation plugin is also executed in the generate-sources phase, prior to compilation -->
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-
-				<!-- This is a minimal working configuration. See the manual's section about the code generator for more details -->
-				<configuration>
-					<jdbc>
-						<url>jdbc:postgresql://localhost:6551/dummy</url>
-						<user>dummy</user>
-						<password>dummy</password>
-					</jdbc>
-					<generator>
-						<database>
-							<includes>dummy</includes>
-						</database>
-						<target>
-							<packageName>org.jooq.example.flyway.db.h2</packageName>
-							<directory>target/generated-sources/jooq-h2</directory>
-						</target>
-					</generator>
 				</configuration>
 			</plugin>
 		</plugins>

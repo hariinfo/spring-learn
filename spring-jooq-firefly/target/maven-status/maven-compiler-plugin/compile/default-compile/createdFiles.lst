@@ -1,0 +1,9 @@
+org/jooq/example/flyway/db/psql/tables/records/PatientRecord.class
+org/jooq/example/flyway/db/psql/Sequences.class
+org/jooq/example/flyway/db/psql/tables/records/FlywaySchemaHistoryRecord.class
+org/jooq/example/flyway/db/psql/Indexes.class
+org/jooq/example/flyway/db/psql/tables/FlywaySchemaHistory.class
+org/jooq/example/flyway/db/psql/tables/Patient.class
+com/example/demo/DemoApplication.class
+org/jooq/example/flyway/db/psql/Dummy.class
+com/example/demo/controller/PatientController.class

@@ -1,0 +1,16 @@
+POST http://localhost:8080/patient
+Content-Type: application/json
+
+{
+    "patient_id":3,
+    "firstName":"test",
+    "lastName":"test"
+}
+
+
+###
+GET http://localhost:8080/patient/1
+
+
+###
+GET http://localhost:8080/patient/2

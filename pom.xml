@@ -61,6 +61,7 @@
   <modules>
     <module>spring-flux</module>
     <module>spring-jdbc-firefly</module>
+    <module>spring-jooq-firefly</module>
   </modules>
 
 <!-- (you do not need this if you are using a .RELEASE version) -->
@@ -85,5 +86,14 @@
             <url>https://repo.spring.io/milestone</url>
         </pluginRepository>
     </pluginRepositories>
+
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 </project>
 
