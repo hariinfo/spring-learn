@@ -1,6 +1,6 @@
-package com.example.demo.model.rowmapper;
+package com.example.demo.data.rowmapper;
 
-import com.example.demo.model.Book;
+import com.example.demo.data.Book;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

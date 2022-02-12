@@ -1,8 +1,8 @@
 package com.example.demo.services;
 
 
-import com.example.demo.model.Book;
-import com.example.demo.model.rowmapper.BookRowMapper;
+import com.example.demo.data.Book;
+import com.example.demo.data.rowmapper.BookRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
