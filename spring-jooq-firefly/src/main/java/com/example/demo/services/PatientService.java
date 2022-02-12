@@ -1,7 +1,8 @@
 package com.example.demo.services;
 
-import com.example.demo.data.Patient;
+import com.example.demo.data.PatientDTO;
 import org.jooq.DSLContext;
+import org.jooq.example.flyway.db.psql.tables.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,24 +14,25 @@ public class PatientService {
    private DSLContext jooqDSL;
 
 
-   public List<Patient> getPatient(int PatientID) {
+   public List<PatientDTO> getPatient(int PatientID) {
       return jooqDSL.select()
-              .from(org.jooq.example.flyway.db.psql.tables.Patient.PATIENT)
-              .where(org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.PATIENT_ID.equal(PatientID))
-              .fetchInto(Patient.class);
+              .from(Patient.PATIENT)
+              .where(Patient.PATIENT.PATIENT_ID.equal(PatientID))
+              .fetchInto(PatientDTO.class);
    }
 
-   public Patient createPatient(Patient patient){
-      return  jooqDSL.insertInto(org.jooq.example.flyway.db.psql.tables.Patient.PATIENT,
-              org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.PATIENT_ID,
-              org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.FIRST_NAME,
-              org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.LAST_NAME).values(
-                      patient.getPatient_id(),patient.getFirstName(),patient.getLastName()
-      ).returningResult(org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.PATIENT_ID,
-              org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.FIRST_NAME,
-              org.jooq.example.flyway.db.psql.tables.Patient.PATIENT.LAST_NAME)
-              .fetchOneInto(Patient.class);
+   public PatientDTO createPatient(PatientDTO patient){
+      return  jooqDSL.insertInto(Patient.PATIENT,
+              Patient.PATIENT.PATIENT_ID,
+              Patient.PATIENT.FIRST_NAME,
+              Patient.PATIENT.LAST_NAME)
+              .values(
+                      patient.getPatient_id(),
+                      patient.getFirstName(),
+                      patient.getLastName()
+      ).returningResult(Patient.PATIENT.PATIENT_ID,
+              Patient.PATIENT.FIRST_NAME,
+              Patient.PATIENT.LAST_NAME)
+              .fetchOneInto(PatientDTO.class);
    }
-
-
 }

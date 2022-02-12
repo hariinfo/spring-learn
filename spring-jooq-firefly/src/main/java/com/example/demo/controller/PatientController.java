@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.data.Patient;
+import com.example.demo.data.PatientDTO;
 import com.example.demo.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,14 +17,14 @@ public class PatientController {
     PatientService patientService;
 
     @GetMapping("{patientID}")
-    ResponseEntity<Iterable<Patient>> getPatient(@PathVariable Integer patientID){
-        List<Patient> patient = patientService.getPatient(patientID);
+    ResponseEntity<Iterable<PatientDTO>> getPatient(@PathVariable Integer patientID){
+        List<PatientDTO> patient = patientService.getPatient(patientID);
         return new ResponseEntity<>(patient, HttpStatus.ACCEPTED);
     }
 
     @PostMapping
-    ResponseEntity<Patient> createPatient(@RequestBody Patient patient){
-        Patient patientOut = patientService.createPatient(patient);
+    ResponseEntity<PatientDTO> createPatient(@RequestBody PatientDTO patient){
+        PatientDTO patientOut = patientService.createPatient(patient);
         return new ResponseEntity<>(patientOut, HttpStatus.ACCEPTED);
     }
 
