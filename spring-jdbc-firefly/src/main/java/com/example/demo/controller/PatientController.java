@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.data.Book;
 import com.example.demo.data.PatientDTO;
+import com.example.demo.exception.PatientAlreadyExistsException;
 import com.example.demo.services.PatientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,10 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity<PatientDTO> addPatient(@RequestBody PatientDTO patientDTO){
+    public ResponseEntity<PatientDTO> addPatient(@RequestBody PatientDTO patientDTO) throws PatientAlreadyExistsException {
+        //Check if Patient with the same email id exists and throw an exception prior to creating a new patient record
+        //TODO:
+
         Long id = patientService.addPatient(patientDTO);
         if (id != null) {
             patientDTO.setPatient_id(id);

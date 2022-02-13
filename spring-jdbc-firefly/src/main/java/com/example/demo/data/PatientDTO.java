@@ -15,4 +15,5 @@ public class PatientDTO {
 
     String lastName;
 
+    String primary_email;
 }

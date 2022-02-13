@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo.PatientControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.397 s <<< FAILURE! - in com.example.demo.PatientControllerTest
+getPatients  Time elapsed: 0.239 s  <<< FAILURE!
+java.lang.AssertionError: []: Expected 7 values but got 2
+	at com.example.demo.PatientControllerTest.getPatients(PatientControllerTest.java:23)
+
