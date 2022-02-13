@@ -45,3 +45,10 @@ flyway:
 
 
 service.basepath.v1: /v1
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: TRACE

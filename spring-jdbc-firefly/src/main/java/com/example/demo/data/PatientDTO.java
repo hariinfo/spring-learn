@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PatientDTO {
-    int patient_id;
+    Long patient_id;
 
     String firstName;
 
