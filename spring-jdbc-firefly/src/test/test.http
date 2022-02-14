@@ -1,18 +1,16 @@
-POST http://localhost:8090/books
+POST http://localhost:8080/patient
 Content-Type: application/json
 
 {
-    "id":1,
-    "genre":"test",
-    "author":"test",
-    "title":"test",
-    "price": 1.55
+    "firstName":"test",
+    "lastName":"test",
+    "primary_email": "hariinfo@gmail.com"
 }
 
 
 ###
-GET http://localhost:8090/books
+GET http://localhost:8080/patient
 
 
 ###
-GET http://localhost:8090/books/2
+GET http://localhost:8080/patient/15

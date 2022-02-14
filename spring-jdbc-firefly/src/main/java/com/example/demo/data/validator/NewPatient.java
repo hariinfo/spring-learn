@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class NewPatient {
-    //@NotBlank(message = "Primary email id can not be empty")
+
+   // @NotBlank(message = "Primary email id can not be empty")
     private String primary_email;
 
 }
