@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.data.AppointmentDTO;
 import com.example.demo.data.Book;
 import com.example.demo.data.PatientDTO;
 import com.example.demo.exception.PatientAlreadyExistsException;
@@ -54,5 +55,11 @@ public class PatientController {
         else {
             return new ResponseEntity<>(patientDTO, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/dashboard/{patientID}")
+    public ResponseEntity<List<AppointmentDTO>> getDashBoard(@PathVariable Integer patientID){
+        return new ResponseEntity<>(patientService.getPatientAppointment(patientID), HttpStatus.OK);
+        //throw new UnsupportedOperationException("Yet to implement");
     }
 }

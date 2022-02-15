@@ -4,8 +4,11 @@
 package org.jooq.example.flyway.db.psql;
 
 
+import org.jooq.example.flyway.db.psql.tables.Appointment;
 import org.jooq.example.flyway.db.psql.tables.FlywaySchemaHistory;
 import org.jooq.example.flyway.db.psql.tables.Patient;
+import org.jooq.example.flyway.db.psql.tables.Physician;
+import org.jooq.example.flyway.db.psql.tables.Room;
 
 
 /**
@@ -13,6 +16,11 @@ import org.jooq.example.flyway.db.psql.tables.Patient;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>dummy.appointment</code>.
+     */
+    public static final Appointment APPOINTMENT = Appointment.APPOINTMENT;
 
     /**
      * The table <code>dummy.flyway_schema_history</code>.
@@ -23,4 +31,14 @@ public class Tables {
      * The table <code>dummy.patient</code>.
      */
     public static final Patient PATIENT = Patient.PATIENT;
+
+    /**
+     * The table <code>dummy.physician</code>.
+     */
+    public static final Physician PHYSICIAN = Physician.PHYSICIAN;
+
+    /**
+     * The table <code>dummy.room</code>.
+     */
+    public static final Room ROOM = Room.ROOM;
 }

@@ -10,8 +10,11 @@ import java.util.List;
 import org.jooq.Catalog;
 import org.jooq.Sequence;
 import org.jooq.Table;
+import org.jooq.example.flyway.db.psql.tables.Appointment;
 import org.jooq.example.flyway.db.psql.tables.FlywaySchemaHistory;
 import org.jooq.example.flyway.db.psql.tables.Patient;
+import org.jooq.example.flyway.db.psql.tables.Physician;
+import org.jooq.example.flyway.db.psql.tables.Room;
 import org.jooq.impl.SchemaImpl;
 
 
@@ -29,6 +32,11 @@ public class Dummy extends SchemaImpl {
     public static final Dummy DUMMY = new Dummy();
 
     /**
+     * The table <code>dummy.appointment</code>.
+     */
+    public final Appointment APPOINTMENT = Appointment.APPOINTMENT;
+
+    /**
      * The table <code>dummy.flyway_schema_history</code>.
      */
     public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
@@ -37,6 +45,16 @@ public class Dummy extends SchemaImpl {
      * The table <code>dummy.patient</code>.
      */
     public final Patient PATIENT = Patient.PATIENT;
+
+    /**
+     * The table <code>dummy.physician</code>.
+     */
+    public final Physician PHYSICIAN = Physician.PHYSICIAN;
+
+    /**
+     * The table <code>dummy.room</code>.
+     */
+    public final Room ROOM = Room.ROOM;
 
     /**
      * No further instances allowed
@@ -61,8 +79,11 @@ public class Dummy extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            Appointment.APPOINTMENT,
             FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
-            Patient.PATIENT
+            Patient.PATIENT,
+            Physician.PHYSICIAN,
+            Room.ROOM
         );
     }
 }

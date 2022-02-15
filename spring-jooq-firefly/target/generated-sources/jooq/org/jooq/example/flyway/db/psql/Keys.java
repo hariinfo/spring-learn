@@ -4,12 +4,19 @@
 package org.jooq.example.flyway.db.psql;
 
 
+import org.jooq.ForeignKey;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
+import org.jooq.example.flyway.db.psql.tables.Appointment;
 import org.jooq.example.flyway.db.psql.tables.FlywaySchemaHistory;
 import org.jooq.example.flyway.db.psql.tables.Patient;
+import org.jooq.example.flyway.db.psql.tables.Physician;
+import org.jooq.example.flyway.db.psql.tables.Room;
+import org.jooq.example.flyway.db.psql.tables.records.AppointmentRecord;
 import org.jooq.example.flyway.db.psql.tables.records.FlywaySchemaHistoryRecord;
 import org.jooq.example.flyway.db.psql.tables.records.PatientRecord;
+import org.jooq.example.flyway.db.psql.tables.records.PhysicianRecord;
+import org.jooq.example.flyway.db.psql.tables.records.RoomRecord;
 import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 
@@ -25,6 +32,17 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<AppointmentRecord> APPOINTMENT_PKEY = Internal.createUniqueKey(Appointment.APPOINTMENT, DSL.name("appointment_pkey"), new TableField[] { Appointment.APPOINTMENT.APPOINTMENT_ID }, true);
     public static final UniqueKey<FlywaySchemaHistoryRecord> FLYWAY_SCHEMA_HISTORY_PK = Internal.createUniqueKey(FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, DSL.name("flyway_schema_history_pk"), new TableField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.INSTALLED_RANK }, true);
     public static final UniqueKey<PatientRecord> PATIENT_PKEY = Internal.createUniqueKey(Patient.PATIENT, DSL.name("patient_pkey"), new TableField[] { Patient.PATIENT.PATIENT_ID }, true);
+    public static final UniqueKey<PhysicianRecord> PHYSICIAN_PKEY = Internal.createUniqueKey(Physician.PHYSICIAN, DSL.name("physician_pkey"), new TableField[] { Physician.PHYSICIAN.PHYSICIAN_ID }, true);
+    public static final UniqueKey<RoomRecord> ROOM_PKEY = Internal.createUniqueKey(Room.ROOM, DSL.name("room_pkey"), new TableField[] { Room.ROOM.EXAMINATION_ROOM_ID }, true);
+
+    // -------------------------------------------------------------------------
+    // FOREIGN KEY definitions
+    // -------------------------------------------------------------------------
+
+    public static final ForeignKey<AppointmentRecord, RoomRecord> APPOINTMENT__APPOINTMENT_EXAMINATION_ROOM_ID_FKEY = Internal.createForeignKey(Appointment.APPOINTMENT, DSL.name("appointment_examination_room_id_fkey"), new TableField[] { Appointment.APPOINTMENT.EXAMINATION_ROOM_ID }, Keys.ROOM_PKEY, new TableField[] { Room.ROOM.EXAMINATION_ROOM_ID }, true);
+    public static final ForeignKey<AppointmentRecord, PatientRecord> APPOINTMENT__APPOINTMENT_PATIENT_ID_FKEY = Internal.createForeignKey(Appointment.APPOINTMENT, DSL.name("appointment_patient_id_fkey"), new TableField[] { Appointment.APPOINTMENT.PATIENT_ID }, Keys.PATIENT_PKEY, new TableField[] { Patient.PATIENT.PATIENT_ID }, true);
+    public static final ForeignKey<AppointmentRecord, PhysicianRecord> APPOINTMENT__APPOINTMENT_PHYSICIAN_ID_FKEY = Internal.createForeignKey(Appointment.APPOINTMENT, DSL.name("appointment_physician_id_fkey"), new TableField[] { Appointment.APPOINTMENT.PHYSICIAN_ID }, Keys.PHYSICIAN_PKEY, new TableField[] { Physician.PHYSICIAN.PHYSICIAN_ID }, true);
 }

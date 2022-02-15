@@ -1,13 +1,16 @@
 package com.example.demo.services;
 
+import com.example.demo.data.AppointmentDTO;
 import com.example.demo.data.PatientDTO;
 import com.example.demo.exception.PatientAlreadyExistsException;
+import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -39,6 +42,8 @@ public class PatientService {
 
     @Value("${patient.current.check}")
     private String GET_CURRENT_PATIENT_SQL;
+
+
 
     //We use BeanPropertyRowMapper instead of a custom row mapper here.
     public List<PatientDTO> getAllPatients(){
@@ -91,6 +96,9 @@ public class PatientService {
         return holder.getKey().longValue();
         //return id.longValue();
     }
+
+
+
 
 
 

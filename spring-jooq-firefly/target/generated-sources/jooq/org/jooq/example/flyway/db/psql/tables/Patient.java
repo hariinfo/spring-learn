@@ -9,7 +9,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row3;
+import org.jooq.Row4;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -58,6 +58,11 @@ public class Patient extends TableImpl<PatientRecord> {
      * The column <code>dummy.patient.last_name</code>.
      */
     public final TableField<PatientRecord, String> LAST_NAME = createField(DSL.name("last_name"), SQLDataType.VARCHAR.nullable(false), this, "");
+
+    /**
+     * The column <code>dummy.patient.primary_email</code>.
+     */
+    public final TableField<PatientRecord, String> PRIMARY_EMAIL = createField(DSL.name("primary_email"), SQLDataType.VARCHAR(254), this, "");
 
     private Patient(Name alias, Table<PatientRecord> aliased) {
         this(alias, aliased, null);
@@ -134,11 +139,11 @@ public class Patient extends TableImpl<PatientRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row3 type methods
+    // Row4 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Integer, String, String> fieldsRow() {
-        return (Row3) super.fieldsRow();
+    public Row4<Integer, String, String, String> fieldsRow() {
+        return (Row4) super.fieldsRow();
     }
 }

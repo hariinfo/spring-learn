@@ -14,3 +14,13 @@ GET http://localhost:8080/patient
 
 ###
 GET http://localhost:8080/patient/15
+
+###
+GET http://localhost:8080/patient/dashboard/15
+
+
+###
+GET http://localhost:8080/appointment
+{
+    "patient_id":"15"
+}
