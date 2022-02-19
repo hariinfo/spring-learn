@@ -45,7 +45,7 @@ public class AppointmentService {
 
     public Long addAppointment(AppointmentDTO appointmentDTO) {
         MapSqlParameterSource params = new MapSqlParameterSource()
-                .addValue("patient_id", appointmentDTO.getPatient_id())
+                .addValue("patient_id", appointmentDTO.getAppointment_id())
                 .addValue("examination_room_id", appointmentDTO.getExamination_room_id())
                 .addValue("physician_id", appointmentDTO.getPhysician_id());
         KeyHolder holder = new GeneratedKeyHolder();

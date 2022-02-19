@@ -9,7 +9,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:8080/patient
+GET http://localhost:80/patient
 
 
 ###
@@ -18,9 +18,15 @@ GET http://localhost:8080/patient/15
 ###
 GET http://localhost:8080/patient/dashboard/15
 
+###
+GET http://localhost:8080/appointment/15
 
 ###
-GET http://localhost:8080/appointment
+POST http://localhost:8080/appointment
+Content-Type: application/json
+
 {
-    "patient_id":"15"
+    "patient_id":"15",
+    "physician_id":1,
+    "examination_room_id":1
 }

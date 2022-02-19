@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  varnish:
+    image: varnish:latest
+    volumes:
+      - "../config/default.vcl:/etc/varnish/default.vcl"
+    ports:
+      - 8090:80
+    depends_on:
+      - frontend-a
+
+  frontend-a:
+    hostname: frontend-a
+    image: varnish-spring:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/dummy
+      - SPRING_DATASOURCE_USERNAME=dummy
+      - SPRING_DATASOURCE_PASSWORD=dummy
+

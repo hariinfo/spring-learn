@@ -93,7 +93,7 @@
 				<!-- Note that we need to prefix the db/migration path with filesystem: to prevent Flyway
                      from looking for our migration scripts only on the classpath -->
 				<configuration>
-					<url>jdbc:postgresql://localhost:6551/dummy</url>
+					<url>jdbc:postgresql://postgres:6551/dummy</url>
 					<user>dummy</user>
 					<password>dummy</password>
                     <baselineOnMigrate>true</baselineOnMigrate>
