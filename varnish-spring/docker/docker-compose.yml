@@ -12,8 +12,13 @@ services:
       - frontend-a
 
   frontend-a:
+    #Path to Dockerfile
+    build: .
+    #Image is only required when we don't have a Dockerfile
+    #if we built the Docker file with this command docker build -t varnish-spring:1.0
+    #image: varnish-spring:1.0
     hostname: frontend-a
-    image: varnish-spring:1.0
+
     ports:
       - "8080:8080"
     environment:
