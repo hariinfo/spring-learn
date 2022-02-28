@@ -56,10 +56,12 @@ public class PatientController {
             return new ResponseEntity<>(patientDTO, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+/*
     @GetMapping("/dashboard/{patientID}")
     public ResponseEntity<List<AppointmentDTO>> getDashBoard(@PathVariable Integer patientID){
         return new ResponseEntity<>(patientService.getPatientAppointment(patientID), HttpStatus.OK);
         //throw new UnsupportedOperationException("Yet to implement");
     }
+*/
 }
+

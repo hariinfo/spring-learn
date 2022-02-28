@@ -62,6 +62,7 @@
     <module>spring-flux</module>
     <module>spring-jdbc-firefly</module>
     <module>spring-jooq-firefly</module>
+      <module>spring-grpc</module>
   </modules>
 
 <!-- (you do not need this if you are using a .RELEASE version) -->
